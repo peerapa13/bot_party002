@@ -14,14 +14,6 @@ intents.message_content = True
 bot = commands.Bot(command_prefix="/", intents=intents)
 
 
-@bot.event
-async def on_ready():
-    print(f'✅ บอท {bot.user.name} ออนไลน์แล้ว!')
-    try:
-        synced = await bot.tree.sync()
-        print(f"Synced {len(synced)} slash commands")
-    except Exception as e:
-        print(e)
 
 # --- คำสั่งจัดการข้อความ (Slash Command) ---
 @bot.tree.command(name="ลงแซ่", description="ลบข้อความตามจำนวนที่ระบุ")
@@ -85,6 +77,15 @@ async def admin_error(interaction: discord.Interaction, error: app_commands.AppC
             await interaction.followup.send("❌ ท่านไม่มีสิทธิ์ในการใช้คำสั่งนี้ (ต้องมีสิทธิ์จัดการข้อความ/สมาชิก)!", ephemeral=True)
         else:
             await interaction.response.send_message("❌ ท่านไม่มีสิทธิ์ในการใช้คำสั่งนี้!", ephemeral=True)
+
+@bot.event
+async def on_ready():
+    print(f'✅ บอท {bot.user.name} ออนไลน์แล้ว!')
+    try:
+        synced = await bot.tree.sync()
+        print(f"Synced {len(synced)} slash commands")
+    except Exception as e:
+        print(e)
 
 
 server_on()

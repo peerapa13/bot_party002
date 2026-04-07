@@ -11,7 +11,7 @@ LOG_CHANNEL_ID = int(os.getenv("LOG_CHANNEL_ID", 0))      # ID ห้องบ�
 intents = discord.Intents.default()
 intents.members = True 
 intents.message_content = True 
-bot = commands.Bot(command_prefix="/", intents=intents)
+bot = commands.Bot(command_prefix=".", intents=intents)
 
 
 @bot.event

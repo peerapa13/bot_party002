@@ -1,0 +1,8 @@
+discord.py
+flask
+python-dotenv
+psycopg2-binary
+feedparser
+aiohttp
+pytz
+asyncio

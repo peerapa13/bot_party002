@@ -79,8 +79,9 @@ async def admin_error(interaction: discord.Interaction, error: app_commands.AppC
         else:
             await interaction.response.send_message("❌ ท่านไม่มีสิทธิ์ในการใช้คำสั่งนี้!", ephemeral=True)
 
+
+server_on()
 try:
     bot.run(os.getenv("TOKEN"))
 except Exception as e:
     print(f"❌ บอทไม่ยอมออนไลน์เพราะ: {e}")
-server_on()
